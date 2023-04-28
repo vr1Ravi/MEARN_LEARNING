@@ -1,0 +1,68 @@
+.footer {
+  background-color: rgb(16 16 16);
+  padding: 3vmax;
+  display: grid;
+  grid-template-columns: 1fr 200px;
+}
+.footer > div > h5 {
+  color: white;
+  border-bottom: 1px solid white;
+  width: 110px;
+  margin-bottom: 18px;
+  padding: 10px 0;
+}
+.footer > div > p {
+  color: white;
+  width: 60%;
+}
+
+.footer > div > h6 {
+  color: white;
+  width: 120px;
+  padding: 10px 0;
+}
+
+.footerLinks {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.links > a {
+  font-size: 2vmax;
+  color: white;
+  transition: all 0.3s;
+  margin: 0 1vmax;
+}
+
+.links > a:nth-child(1):hover {
+  color: black;
+}
+.links > a:nth-child(2):hover {
+  color: rgb(64, 88, 226);
+}
+.links > a:nth-child(3):hover {
+  color: crimson;
+}
+
+.footerContact {
+  background-color: white;
+  color: black;
+  padding: 5px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s;
+  border: 1px solid white;
+  display: block;
+  width: 100px;
+  margin: 2vmax 0;
+  border-radius: 10px;
+}
+.footerContact:hover {
+  background-color: unset;
+}
+.footerContact > p:hover {
+  color: white;
+  background-color: rgb(29, 26, 26);
+}
