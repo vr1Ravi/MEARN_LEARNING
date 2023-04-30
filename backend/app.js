@@ -1,6 +1,7 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 import { userRouter } from "./routes/User.js";
+import path from "path";
 import dotenv from "dotenv";
 dotenv.config({
   path: "./backend/config/config.env",
