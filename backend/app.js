@@ -12,6 +12,9 @@ app.use(express.urlencoded({ extended: true, limit: "50mb" })); //middleware is 
 app.use(cookieParser());
 app.use("/api/v1", userRouter); //using Routes
 
-app.get("/", (req, res) => {
-  res.end("hello");
+app.use(express.static(path.resolve("./frontend/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve("./frontend/build/index.html"));
 });
+
