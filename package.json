@@ -9,6 +9,9 @@
     "start": "node backend/server.js",
     "frontend": "npm start --prefix frontend"
   },
+  "engines": {
+    "node": ">=14.20.1"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
