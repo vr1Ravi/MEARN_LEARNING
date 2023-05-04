@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import cookieParser from "cookie-parser";
 import { userRouter } from "./routes/User.js";
 // import path from "path";
@@ -7,6 +8,13 @@ dotenv.config({
   path: "./backend/config/config.env",
 });
 export const app = express();
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "X-Requested-With"],
+  })
+);
 
 app.use(express.json()); //This middleware is used to parse incoming JSON data in the request body and make it available in req.body object of the route handler.
 app.use(express.urlencoded({ extended: true, limit: "50mb" })); //middleware is used to parse incoming requests with URL-encoded payloads.
