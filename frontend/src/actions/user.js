@@ -6,7 +6,7 @@ export const getUser = () => async (dispatch) => {
       type: "GET_USER_REQUEST",
     });
 
-    const { data } = await axios.get("api/v1/user");
+    const { data } = await axios.get("https://protfolio-backend-gzui.onrender.com/api/v1/user");
     dispatch({
       type: "GET_USER_SUCCESS",
       payload: data.user,
@@ -26,7 +26,7 @@ export const login = (email, password) => async (dispatch) => {
     });
 
     const { data } = await axios.post(
-      "api/v1/login",
+      "https://protfolio-backend-gzui.onrender.com/api/v1/login",
       {
         email,
         password,
@@ -52,7 +52,7 @@ export const logout = () => async (dispatch) => {
     dispatch({
       type: "LOGOUT_REQUEST",
     });
-    const { data } = await axios.get("api/v1/logout");
+    const { data } = await axios.get("https://protfolio-backend-gzui.onrender.com/api/v1/logout");
     dispatch({
       type: "LOGOUT_SUCCESS",
       payload: data.message,
@@ -70,7 +70,7 @@ export const loadUser = () => async (dispatch) => {
     dispatch({
       type: "LOAD_USER_REQUEST",
     });
-    const { data } = await axios.get("api/v1/me");
+    const { data } = await axios.get("https://protfolio-backend-gzui.onrender.com/api/v1/me");
     console.log(data);
     dispatch({
       type: "LOAD_USER_SUCCESS",
@@ -90,7 +90,7 @@ export const updateUser =
       dispatch({
         type: "UPDATE_USER_REQUEST",
       });
-      const { data } = await axios.put("api/v1/admin/update", {
+      const { data } = await axios.put("https://protfolio-backend-gzui.onrender.com/api/v1/admin/update", {
         name,
         email,
         password,
@@ -116,7 +116,7 @@ export const addTimeline = (title, description, date) => async (dispatch) => {
       type: "ADD_TIMELINE_REQUEST",
     });
     const { data } = await axios.post(
-      "api/v1/admin/timeline/add",
+      "https://protfolio-backend-gzui.onrender.com/api/v1/admin/timeline/add",
       {
         title,
         description,
@@ -143,7 +143,7 @@ export const deleteTimeline = (id) => async (dispatch) => {
     dispatch({
       type: "DELETE_TIMELINE_REQUEST",
     });
-    const { data } = await axios.delete(`api/v1/admin/timeline/${id}`);
+    const { data } = await axios.delete(`https://protfolio-backend-gzui.onrender.com/api/v1/admin/timeline/${id}`);
     dispatch({
       type: " DELETE_TIMELINE_SUCCESS",
       payload: data.message,
@@ -163,7 +163,7 @@ export const contactUs = (name, email, message) => async (dispatch) => {
     });
 
     const { data } = await axios.post(
-      "api/v1/contact",
+      "https://protfolio-backend-gzui.onrender.com/api/v1/contact",
       {
         name,
         email,
@@ -193,7 +193,7 @@ export const addProject =
       });
       console.log("ok");
       const { data } = await axios.post(
-        "api/v1/admin/project/add",
+        "https://protfolio-backend-gzui.onrender.com/api/v1/admin/project/add",
         {
           title,
           url,
@@ -222,7 +222,7 @@ export const deleteProject = (id) => async (dispatch) => {
     dispatch({
       type: "DELETE_PROJECT_REQUEST",
     });
-    const { data } = axios.delete(`api/v1/admin/project/${id}`);
+    const { data } = axios.delete(`https://protfolio-backend-gzui.onrender.com/api/v1/admin/project/${id}`);
     dispatch({
       type: "DELETE_PROJECT_SUCCESS",
       payload: data.message,
