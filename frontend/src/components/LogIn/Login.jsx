@@ -34,29 +34,26 @@ const Login = () => {
       <div className="loginBox">
         <form className="loginForm" onSubmit={subMitHandler}>
           <Typography variant="h4">
-            <p>A</p>
-            <p>D</p>
             <p>M</p>
-            <p>I</p>
-            <p style={{ marginRight: "1vmax" }}>N</p>
+            <p style={{ marginRight: "1vmax" }}>E</p>
             <p>O</p>
-          <p>N</p>
-          <p>L</p>
-          <p>Y</p>
+            <p>N</p>
+            <p>L</p>
+            <p>Y</p>
           </Typography>
 
           <div>
             <input
               required
               type="email"
-              placeholder="Admin Email"
+              placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
               required
               type="password"
-              placeholder="Admin PassWord"
+              placeholder="PassWord"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />

@@ -31,17 +31,17 @@
   min-height: inherit;
   background-color: white;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  /* flex-direction: column; */
   padding: 5vmax;
   padding-bottom: 10vmax;
   overflow-x: hidden;
+  align-items: flex-start;
 }
 
 .projectCard {
-  width: 80%;
+  width: 50%;
+  height: 50%;
   text-decoration: none;
   color: rgba(0, 0, 0, 0.71);
   margin: 2vmax;

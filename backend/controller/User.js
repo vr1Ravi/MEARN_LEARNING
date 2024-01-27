@@ -58,12 +58,19 @@ export const logout = async (req, res) => {
 
 export const getUser = async (req, res) => {
   try {
-    const user = await User.findOne().select("-password -email");
+    const user = await User.findOne({ email: "ravikumarjha059@gmail.com" });
 
-    res.status(200).json({
-      success: true,
-      user,
-    });
+    if (user) {
+      res.status(200).json({
+        success: true,
+        user,
+      });
+    } else {
+      res.status(404).json({
+        success: false,
+        message: "User Not Found",
+      });
+    }
   } catch (error) {
     return res.status(400).json({
       success: false,
@@ -93,178 +100,33 @@ export const updateUser = async (req, res) => {
   // Updating User Information
   try {
     const user = await User.findById(req.user._id);
-    const { name, email, password, skills, about } = req.body;
-
+    const { name, email, password, skill } = req.body;
     if (name) user.name = name;
     if (email) user.email = email;
     if (password) user.password = password;
 
-    if (skills) {
-      if (skills.image1) {
-        const skillsImageId = user.skills.image1.public_id;
-
-        await cloudinary.v2.uploader.destroy(skillsImageId); // destroying Previous Skill Image from Cloudinary
-        const myCloud = await cloudinary.v2.uploader.upload(skills.image1, {
-          // uploading new skill Image
+    if (skill) {
+      if (skill.image) {
+        const myCloud = await cloudinary.v2.uploader.upload(skill.image, {
           folder: "portfolio",
         });
-
-        user.skills.image1 = {
-          public_id: myCloud.public_id,
-          url: myCloud.secure_url,
-        };
-      }
-      if (skills.image2) {
-        const skillsImageId = user.skills.image2.public_id;
-
-        await cloudinary.v2.uploader.destroy(skillsImageId); // destroying Previous Skill Image from Cloudinary
-        const myCloud = await cloudinary.v2.uploader.upload(skills.image2, {
-          // uploading new skill Image
-          folder: "portfolio",
+        user.skills.push({
+          title: skill.type,
+          image: {
+            public_id: myCloud.public_id,
+            url: myCloud.secure_url,
+          },
         });
-
-        user.skills.image2 = {
-          public_id: myCloud.public_id,
-          url: myCloud.secure_url,
-        };
-      }
-      if (skills.image3) {
-        const skillsImageId = user.skills.image3.public_id;
-
-        await cloudinary.v2.uploader.destroy(skillsImageId); // destroying Previous Skill Image from Cloudinary
-        const myCloud = await cloudinary.v2.uploader.upload(skills.image3, {
-          // uploading new skill Image
-          folder: "portfolio",
-        });
-
-        user.skills.image3 = {
-          public_id: myCloud.public_id,
-          url: myCloud.secure_url,
-        };
-      }
-      if (skills.image4) {
-        const skillsImageId = user.skills.image4.public_id;
-
-        await cloudinary.v2.uploader.destroy(skillsImageId); // destroying Previous Skill Image from Cloudinary
-        const myCloud = await cloudinary.v2.uploader.upload(skills.image4, {
-          // uploading new skill Image
-          folder: "portfolio",
-        });
-
-        user.skills.image4 = {
-          public_id: myCloud.public_id,
-          url: myCloud.secure_url,
-        };
-      }
-      if (skills.image5) {
-        const skillsImageId = user.skills.image5.public_id;
-
-        await cloudinary.v2.uploader.destroy(skillsImageId); // destroying Previous Skill Image from Cloudinary
-        const myCloud = await cloudinary.v2.uploader.upload(skills.image5, {
-          // uploading new skill Image
-          folder: "portfolio",
-        });
-
-        user.skills.image5 = {
-          public_id: myCloud.public_id,
-          url: myCloud.secure_url,
-        };
-      }
-      if (skills.image6) {
-        const skillsImageId = user.skills.image6.public_id;
-
-        await cloudinary.v2.uploader.destroy(skillsImageId); // destroying Previous Skill Image from Cloudinary
-        const myCloud = await cloudinary.v2.uploader.upload(skills.image6, {
-          // uploading new skill Image
-          folder: "portfolio",
-        });
-
-        user.skills.image6 = {
-          public_id: myCloud.public_id,
-          url: myCloud.secure_url,
-        };
       }
     }
-    if (about) {
-      const userAbout = user.about;
-      if (about.name) userAbout.name = about.name;
-      if (about.title) userAbout.title = about.title;
-      if (about.subTitle) userAbout.subTitle = about.subTitle;
-      if (about.description) userAbout.description = about.description;
-      if (about.quote) userAbout.quote = about.quote;
-
-      if (about.avatar) {
-        const avatarId = user.skills.avatar.public_id;
-        await cloudinary.v2.uploader.destroy(avatarId);
-
-        const myCloud = await cloudinary.v2.uploader.upload(about.avatar, {
-          folder: "protfolio",
-        });
-
-        user.about.avatar = {
-          public_id: myCloud.public_id,
-          url: myCloud.url,
-        };
-      }
-    }
-
     user.save();
     res.status(200).json({
       success: true,
       message: "User Updated Succefully",
     });
   } catch (error) {
-    return res.status(400).json({
-      success: false,
-      message: error.message,
-    });
-  }
-};
-
-export const addTimeline = async (req, res) => {
-  try {
-    const { title, description, date } = req.body;
-    const id = req.user._id;
-    const user = await User.findById(id);
-
-    user.timeline.unshift({
-      title,
-      description,
-      date,
-    });
-    await user.save();
-
-    res.status(200).json({
-      success: true,
-      message: "Timeline updated",
-    });
-  } catch (error) {
-    return res.status(400).json({
-      success: false,
-      message: error.message,
-    });
-  }
-};
-export const deleteTimeline = async (req, res) => {
-  try {
-    const { id } = req.params;
-
-    const user = await User.findById(req.user._id);
-
-    const newTimelineArr = user.timeline.filter((item) => {
-      return item._id != id;
-    });
-
-    user.timeline = newTimelineArr;
-
-    await user.save();
-
-    res.status(200).json({
-      success: true,
-      message: "Deleted From timeline",
-    });
-  } catch (error) {
-    return res.status(400).json({
+    console.log(error);
+    return res.status(500).json({
       success: false,
       message: error.message,
     });

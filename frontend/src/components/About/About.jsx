@@ -24,11 +24,18 @@ const About = ({ about }) => {
             {/* <img src={about !== "" ? img : img} alt="img" /> */}
             <img src={pp} alt="" />
             <Typography style={{ marginBottom: "1rem" }}>
-              {about !== "" ? about.title : role}
+              Full Stack Developer
             </Typography>
           </div>
           <div className="aboutDescription">
-            {about !== "" ? about.description : " "}
+            I'm obsessed with making things and even more obsessed with making
+            things better. I've been actively involved in the web app
+            development community since I graduated, and I've created websites
+            and logos for a variety of organisations, including corporations and
+            small businesses. My area of expertise is front-end programming,
+            creating appealing UI with React, HTML, and CSS. I enjoy researching
+            and developing new technologies. I am a self-driven individual who
+            values perseverance and diligence.
           </div>
         </div>
 
@@ -52,26 +59,6 @@ const About = ({ about }) => {
                 />
                 <span>Calisthenics</span>
               </div>
-            </div>
-          </div>
-
-          <div className="work">
-            <Typography variant="h3">LOOK WHAT I CAN DO</Typography>
-            <div>
-              <img src={plus} alt="plus" />
-              <p>FrontEnd Dev.</p>
-            </div>
-            <div>
-              <img src={plus} alt="plus" />
-              <p>BackEnd Dev.</p>
-            </div>
-            <div>
-              <img src={plus} alt="plus" />
-              <p>APIs Creation</p>
-            </div>
-            <div>
-              <img src={plus} alt="plus" />
-              <p>Logo Design</p>
             </div>
           </div>
         </div>

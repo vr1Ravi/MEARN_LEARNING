@@ -36,103 +36,43 @@
   text-align: center;
   color: rgb(63, 63, 63);
 }
-.skillBox {
-  /* height: 1500px; */
-  height: 150vh;
+.skillContainer {
   position: relative;
-  padding: 200px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
+  padding: 50px;
   box-sizing: border-box;
-  perspective: 450px;
   overflow-x: hidden;
-  background-color: hsl(162.17deg 48.45% 20.26%);
-  transform: translateY(-190px);
-  margin-bottom: -200px;
+  transform: translateY(-100px);
 }
 
-.skillBox > h3 {
+.skillContainer > h3 {
   text-align: center;
   margin-bottom: 4vmax;
   color: white;
   font-size: 4vmax;
 }
-.skillCube {
-  height: 100px;
-  width: 100px;
-  animation: cubeRotation 15s linear infinite alternate;
-  transform-style: preserve-3d;
+.skillBox {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2.5rem;
+  justify-items: center;
 }
-
-.cubeShadow {
-  height: 40px;
-  width: 300px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.171);
-  animation: cubeShadow 2s ease-in-out infinite alternate;
-  filter: blur(3px);
+.skillBox > div {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
-.cubeSkillFaces {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  box-shadow: 0 0 10px rgb(0, 0, 0);
-  position: absolute;
-  height: inherit;
-  width: inherit;
-  opacity: 0.7;
+.skillList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 10px;
+  margin-top: 1rem;
 }
-.cubeSkillFaces > img {
-  height: 150px;
-  width: 150px;
-}
-
-.cubeSkillFace1 {
-  transform: translate3d(0, 0, 100px);
-}
-
-.cubeSkillFace2 {
-  transform: rotateY(180deg) translate3d(0, 0, 100px);
-}
-.cubeSkillFace3 {
-  transform: rotateY(-90deg) translate3d(0, 0, 100px);
-}
-.cubeSkillFace4 {
-  transform: rotateY(90deg) translate3d(0, 0, 100px);
-}
-.cubeSkillFace5 {
-  transform: rotateX(90deg) translate3d(0, 0, 100px);
-}
-.cubeSkillFace6 {
-  transform: rotateX(-90deg) translate3d(0, 0, 100px);
-}
-
-.skillsBar {
-  background-color: hsl(250, 100%, 75%);
-  padding: 0 2vmax;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  right: -300px;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  top: 22%;
-  height: 60%;
-  justify-content: space-between;
-}
-.skillsBar > svg {
-  font-size: 5vmax;
-  color: white;
-  transition: all 0.5s;
-  margin: 9px;
-}
-.skillsBar > svg:hover {
-  transform: scale(1.3);
-}
-
 @keyframes headingAnimation {
   to {
     transform: translateX(0);
@@ -143,33 +83,12 @@
     transform: translateY(0);
   }
 }
-@keyframes cubeRotation {
-  to {
-    transform: rotateY(360deg) rotateX(480deg) rotateZ(720deg);
-  }
-}
 
-@keyframes cubeShadow {
-  to {
-    transform: scale(1.1) translateY(-10px);
+@media screen and (max-width: 1000px) {
+  .skillBox {
+    grid-template-columns: 1fr;
+  }
+  .skillBox > div {
+    margin-bottom: 20px;
   }
 }
-
-@keyframes skillsBarAnimationOn {
-  from {
-    right: -300px;
-  }
-  to {
-    right: 20px;
-  }
-}
-@keyframes skillsBarAnimationOff {
-  from {
-    right: 20px;
-  }
-  to {
-    right: -330px;
-  }
-}
-/* @media screen and (max-width: ) {
-} */

@@ -21,7 +21,7 @@
   width: 25%;
   align-items: center;
   background-color: hsl(211.33deg 91.84% 19.22%);
-  top: 20%;
+  top: 30%;
   z-index: 11;
   border-radius: 10px;
   height: 60%;
@@ -75,7 +75,7 @@
   position: absolute;
   border-radius: 100px 0 0 100px;
   transform: translateX(-100%) translateY(-50%);
-  top: 50%;
+  top: 60%;
   display: flex;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   justify-content: center;
@@ -144,8 +144,8 @@
   .contactBoxFloat {
     width: 74%;
     left: -1%;
-    top: 5%;
-    height: 30%;
+    top: 10%;
+    height: 22%;
   }
   .contactForm > h4 {
     margin-top: 5rem;

@@ -1,0 +1,26 @@
+.header-container {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  width: 100vw;
+  z-index: 10;
+}
+.header-links {
+  flex: 0.7;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+.header-links > a {
+  text-decoration: none;
+  color: white;
+  font-family: system-ui;
+  cursor: pointer;
+}
+@media screen and (max-width: 600px) {
+  .header-links {
+    flex: 0.9;
+  }
+}

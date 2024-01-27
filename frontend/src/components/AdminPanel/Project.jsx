@@ -19,7 +19,7 @@ const Project = () => {
   const [techStack, setTechStack] = useState("");
   const subMitHandler = async (e) => {
     e.preventDefault();
-    await dispatch(addProject(title, url, image, description, techStack));
+    dispatch(addProject(title, url, image, description, techStack));
     dispatch(getUser());
   };
 
@@ -53,16 +53,12 @@ const Project = () => {
     <div className="adminContainer">
       <div className="adminBox">
         <Typography variant="h4">
-          <p>A</p>
-          <p>D</p>
           <p>M</p>
-          <p>I</p>
-          <p style={{ marginRight: "1vmax" }}>N</p>
-          <p>P</p>
-          <p>A</p>
+          <p style={{ marginRight: "1vmax" }}>E</p>
+          <p>O</p>
           <p>N</p>
-          <p>E</p>
           <p>L</p>
+          <p>Y</p>
         </Typography>
 
         <form onSubmit={subMitHandler}>

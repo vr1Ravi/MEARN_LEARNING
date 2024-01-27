@@ -18,7 +18,7 @@ export const ProjectCard = ({
 }) => {
   const dispatch = useDispatch();
   const deleteHandler = async (id) => {
-    await dispatch(deleteProject(id));
+    dispatch(deleteProject(id));
     dispatch(getUser());
   };
 
@@ -28,14 +28,10 @@ export const ProjectCard = ({
         <div>
           <img src={projectImage} alt="Project" />
           <Typography variant="h5">{projectTitle}</Typography>
+          <Typography variant="h6">Tech Stack: {technologies}</Typography>
           <a className="projectCardLink" href={url}>
             VIEW DEMO
           </a>
-        </div>
-        <div>
-          <Typography variant="h4">About Project</Typography>
-          <Typography>{description}</Typography>
-          <Typography variant="h6">Tech Stack: {technologies}</Typography>
         </div>
       </div>
 
@@ -67,7 +63,6 @@ const Projects = ({ projects }) => {
               url={project.url}
               projectImage={project.image.url}
               projectTitle={project.title}
-              description={project.description}
               technologies={project.techStack}
             />
           ))}
