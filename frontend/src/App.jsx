@@ -12,7 +12,7 @@ import { getUser } from "./actions/user";
 import { useEffect } from "react";
 import Admin from "./components/AdminPanel/Admin";
 import Project from "./components/AdminPanel/Project";
-
+import { DNA } from "react-loader-spinner";
 function App() {
   const dispatch = useDispatch();
   const { isAuthenticated } = useSelector((state) => state.login);
@@ -24,7 +24,14 @@ function App() {
   return (
     <Router>
       {loading ? (
-        <div>Loading</div>
+        <DNA
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="dna-loading"
+          wrapperStyle={{ position: "absolute", top: "50%", left: "50%" }}
+          wrapperClass="dna-wrapper"
+        />
       ) : (
         <>
           <Header />

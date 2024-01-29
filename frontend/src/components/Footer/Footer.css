@@ -1,6 +1,6 @@
 .footer {
   background-color: rgb(16 16 16);
-  padding: 3vmax;
+  padding: 1vmax;
   display: grid;
   grid-template-columns: 1fr 200px;
 }

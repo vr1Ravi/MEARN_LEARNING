@@ -12,7 +12,6 @@ export const ProjectCard = ({
   url,
   projectImage,
   projectTitle,
-  description,
   technologies,
   isAdmin = false,
 }) => {
@@ -24,16 +23,15 @@ export const ProjectCard = ({
 
   return (
     <>
-      <div className="projectCard">
-        <div>
-          <img src={projectImage} alt="Project" />
-          <Typography variant="h5">{projectTitle}</Typography>
-          <Typography variant="h6">Tech Stack: {technologies}</Typography>
-          <a className="projectCardLink" href={url}>
-            VIEW DEMO
-          </a>
+      <a className="projectCard" href={url} target="black">
+        <div className="upperPart">
+          <img src={projectImage} alt="" />
         </div>
-      </div>
+        <div className="lowerPart">
+          <h3>{projectTitle}</h3>
+          <p>{technologies}</p>
+        </div>
+      </a>
 
       {isAdmin && (
         <Button
@@ -55,17 +53,19 @@ const Projects = ({ projects }) => {
       </Typography>
 
       <div className="projectWrapper">
-        {projects &&
-          projects.map((project, idx) => (
-            <ProjectCard
-              id={project._id}
-              key={project._id}
-              url={project.url}
-              projectImage={project.image.url}
-              projectTitle={project.title}
-              technologies={project.techStack}
-            />
-          ))}
+        <div className="prejectWrapperHelper">
+          {projects &&
+            projects.map((project) => (
+              <ProjectCard
+                id={project._id}
+                key={project._id}
+                url={project.url}
+                projectImage={project.image.url}
+                projectTitle={project.title}
+                technologies={project.techStack}
+              />
+            ))}
+        </div>
       </div>
     </div>
   );

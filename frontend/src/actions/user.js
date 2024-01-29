@@ -109,7 +109,7 @@ export const updateUser =
     }
   };
 
-export const contactUs = (name, email, message) => async (dispatch) => {
+export const contactMe = (name, email, message) => async (dispatch) => {
   try {
     dispatch({
       type: "CONTACT_US_REQUEST",

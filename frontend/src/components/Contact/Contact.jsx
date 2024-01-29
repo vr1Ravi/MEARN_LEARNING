@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Contact.css";
 import { Button, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { contactUs } from "../../actions/user";
+import { contactMe } from "../../actions/user";
 import { useAlert } from "react-alert";
 import { BsTelephoneOutbound } from "react-icons/bs";
 import { RiMailOpenLine } from "react-icons/ri";
@@ -20,7 +20,10 @@ const Contact = () => {
 
   const contactFormHandler = (e) => {
     e.preventDefault();
-    dispatch(contactUs(name, email, message));
+    dispatch(contactMe(name, email, message));
+    setName("");
+    setEmail("");
+    setMessage("");
   };
 
   useEffect(() => {
