@@ -8,7 +8,7 @@
 .contactRightBar {
   background-color: hsl(250deg 20.97% 27.99%);
   height: inherit;
-  width: 30%;
+  width: 27%;
   position: absolute;
   right: 0;
   transform: translateY(-100vh);
@@ -161,13 +161,13 @@
   .contactBoxFloat {
     width: 100%;
     left: -30%;
-    top: 6.4%;
+    top: 13.4%;
     height: 30%;
     overflow: hidden;
   }
   .contactBox {
-    height: 75%;
-    top: 62%;
+    height: 66%;
+    top: 65%;
     width: 100%;
     overflow: hidden;
     animation: contactFormResponsive_2_Animation 1.5s linear forwards;
@@ -180,6 +180,9 @@
     font-size: 7px;
     width: 58%;
     left: 52%;
+  }
+  .contactRightBar {
+    width: 36%;
   }
 }
 @keyframes contactFormResponsiveAnimation {
