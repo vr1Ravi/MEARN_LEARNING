@@ -46,8 +46,8 @@
   transition: all 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
-  width: 17vmax;
-  height: 18vmax;
+  width: 19vmax;
+  height: 23vmax;
   text-decoration: none;
   animation: projectCardAnimation 1s ease-in-out forwards;
 }
