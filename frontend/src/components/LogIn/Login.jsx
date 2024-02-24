@@ -9,8 +9,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const dispatch = useDispatch(); // Hook
-  const alert = useAlert(); // Hook
+  const dispatch = useDispatch();
+  const alert = useAlert();
   const { loading, message, error } = useSelector((state) => state.login);
 
   const subMitHandler = (e) => {

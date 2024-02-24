@@ -23,7 +23,7 @@ const Home = ({ skills }) => {
               {skills.map(
                 (skill) =>
                   skill?.title === "Front-End" && (
-                    <img src={skill.image.url} alt="" />
+                    <img key={skill._id} src={skill.image.url} alt="" />
                   )
               )}
             </div>
@@ -34,7 +34,7 @@ const Home = ({ skills }) => {
               {skills.map(
                 (skill) =>
                   skill?.title === "Back-End" && (
-                    <img src={skill.image.url} alt="" />
+                    <img key={skill._id} src={skill.image.url} alt="" />
                   )
               )}
             </div>
@@ -45,7 +45,7 @@ const Home = ({ skills }) => {
               {skills.map(
                 (skill) =>
                   skill?.title === "Database" && (
-                    <img src={skill.image.url} alt="" />
+                    <img key={skill._id} src={skill.image.url} alt="" />
                   )
               )}
             </div>
