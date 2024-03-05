@@ -16,8 +16,8 @@ app.use(
 app.use(cookieParser());
 app.use("/api/v1", userRouter); //using Routes
 
-app.use(express.static(path.resolve("./frontend/build")));
+app.use(express.static(path.resolve("./frontend/dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve("./frontend/build/index.html"));
+  res.sendFile(path.resolve("./frontend/dist/index.html"));
 });
