@@ -3,27 +3,29 @@ import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer";
-import About from "./components/About/About";
-import Projects from "./components/Projects/Project";
-import Contact from "./components/Contact/Contact";
-import Login from "./components/LogIn/Login";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "./actions/user";
-import { useEffect } from "react";
+import { useEffect, Suspense, lazy } from "react";
 import Admin from "./components/AdminPanel/Admin";
-import Project from "./components/AdminPanel/Project";
 import { DNA } from "react-loader-spinner";
+
+const About = lazy(() => import("./components/About/About"));
+const Projects = lazy(() => import("./components/Projects/Project"));
+const Project = lazy(() => import("./components/AdminPanel/Project"));
+const Contact = lazy(() => import("./components/Contact/Contact"));
+const Login = lazy(() => import("./components/LogIn/Login"));
+
 function App() {
   const dispatch = useDispatch();
   const { isAuthenticated } = useSelector((state) => state.login);
-  const { loading, user } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch]);
 
   return (
-    <Router>
-      {loading ? (
+    <Suspense
+      fallback={
         <DNA
           visible={true}
           height="80"
@@ -37,7 +39,9 @@ function App() {
           }}
           wrapperClass="dna-wrapper"
         />
-      ) : (
+      }
+    >
+      <Router>
         <>
           <Header />
           <Routes>
@@ -65,8 +69,8 @@ function App() {
           </Routes>
           <Footer />
         </>
-      )}
-    </Router>
+      </Router>
+    </Suspense>
   );
 }
 

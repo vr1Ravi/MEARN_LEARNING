@@ -172,10 +172,9 @@ export const deleteProject = async (req, res) => {
     const { id } = req.params;
     const user = await User.findById(req.user._id);
 
-    const project = user.projects.find((pro) => {
-      pro._id == id;
-    });
-    await cloudinary.vr.uploader.destroy(project.image.public_id); // Project Image From cloudinary
+    const project = user.projects.find((pro) => pro._id == id);
+
+    await cloudinary.v2.uploader.destroy(project.image.public_id); // Project Image From cloudinary
 
     const newProjectArr = user.projects.filter((item) => {
       item._id != id;

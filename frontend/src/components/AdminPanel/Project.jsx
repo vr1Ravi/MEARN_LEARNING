@@ -109,7 +109,7 @@ const Project = () => {
           <Button type="submit" variant="contained">
             ADD
           </Button>
-          <div className="adminPanelTimeline">
+          <div className="adminPanelTimeline ">
             {user &&
               user.projects &&
               user.projects.map((item) => (

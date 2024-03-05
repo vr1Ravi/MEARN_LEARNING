@@ -34,6 +34,6 @@ const userSchema = new mongoose.Schema({
     },
   ],
   about: String,
-}); // structure of datas is database
+});
 
 export const User = mongoose.model("User", userSchema); // model = tool to organise  schema
