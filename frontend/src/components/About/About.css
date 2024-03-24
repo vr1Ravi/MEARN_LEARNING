@@ -53,15 +53,7 @@
 .aboutImg {
   text-align: center;
 }
-.aboutImg > img {
-  border-radius: 20%;
-  transition: all 0.5s;
-  width: 50%;
-}
-.aboutImg > img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3457);
-}
+
 .bottom {
   width: 100%;
   display: flex;

@@ -7,7 +7,7 @@ import travelImg from "../../images/travel.png";
 import codingImg from "../../images/programmer.png";
 import plus from "../../images/plus.png";
 import pp from "../../images/PP.JPG";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
 const About = ({ about }) => {
   const role = " MERN DEVELOPER";
   return (
@@ -21,8 +21,13 @@ const About = ({ about }) => {
 
         <div>
           <div className="aboutImg">
-            {/* <img src={about !== "" ? img : img} alt="img" /> */}
-            <img src={pp} alt="" />
+            <LazyLoadImage
+              src={pp}
+              alt="Profile Img"
+              width={"70%"}
+              effect="blur"
+              style={{ borderRadius: "20%" }}
+            />
             <Typography style={{ marginBottom: "1rem" }}>
               Full Stack Developer
             </Typography>
@@ -30,12 +35,12 @@ const About = ({ about }) => {
           <div className="aboutDescription">
             I'm obsessed with making things and even more obsessed with making
             things better. I've been actively involved in the web app
-            development community since I graduated, and I've created websites
-            and logos for a variety of organisations, including corporations and
-            small businesses. My area of expertise is front-end programming,
-            creating appealing UI with React, HTML, and CSS. I enjoy researching
-            and developing new technologies. I am a self-driven individual who
-            values perseverance and diligence.
+            development community since I started graduation, and I've created
+            websites for a variety of small businesses. My area of expertise is
+            full stack development, creating appealing UI with Reactjs,
+            Tailwind, HTML5, and CSS3 and highly scalable Backend using Nodejs
+            and Express. I enjoy researching and developing new technologies. I
+            am a self-driven individual who values perseverance and diligence.
           </div>
         </div>
 
